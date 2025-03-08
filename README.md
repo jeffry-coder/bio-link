@@ -56,3 +56,8 @@ The agent follows a **ReAct (Reasoning + Acting) design** using LangGraph:
 4. **Final Response**: The agent returns a structured answer, potentially with visualizations or data insights.
 
 The workflow includes a **stateful memory system**, allowing conversations to persist and enabling iterative refinements over multiple turns. Additionally, constraints are in place to ensure scalability when working with large datasets, such as **sampling nodes from subgraphs** for NetworkX analyses.
+
+## What's Next?
+- Consider alternative agentic designs like hierarchical agents or planner-executor models for better modularity and reasoning.
+- Leverage graph states to store intermediate results, reducing redundant LLM parsing to tool calls.
+- Optimize NetworkX for large graphs by implementing parallel processing and providing more robust examples. 
