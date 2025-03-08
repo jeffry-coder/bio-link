@@ -1,0 +1,43 @@
+## Graph Overview
+- **Graph Name**: SYNTHEA_P100
+- **Purpose**: Represents healthcare data with relationships between entities such as patients, encounters, providers, payers, and various medical records.
+
+### Edge Definitions
+Example: (other edge collections roughly follow the same structure)
+**encounters_to_conditions**
+    `{"_key": "138963", "_id": "encounters_to_conditions/138963", "_from": "encounters/84d6f5d3-569c-be5d-56a4-55f6e91c8a34", "_to": "conditions/1", "_rev": "_jTUq-O6---", "CODE": 314529007}`
+
+Available edge collections include: ['encounters_to_allergies', 'encounters_to_careplans', 'encounters_to_conditions', 'encounters_to_devices', 'encounters_to_imaging_studies', 'encounters_to_immunizations', 'encounters_to_medications', 'encounters_to_observations', 'encounters_to_procedures', 'encounters_to_supplies', 'organizations_to_encounters', 'organizations_to_providers', 'patients_to_allergies', 'patients_to_careplans', 'patients_to_conditions', 'patients_to_devices', 'patients_to_encounters', 'patients_to_imaging_studies', 'patients_to_immunizations', 'patients_to_medications', 'patients_to_observations', 'patients_to_procedures', 'patients_to_supplies', 'payers_to_encounters', 'payers_to_medications', 'providers_to_encounters']
+
+### Collection Schema for Documents
+
+1. **allergies**
+   - Example: `{"_key": "1", "_id": "allergies/1", "_rev": "_jTUbE8i---", "START": "2023-05-15", "PATIENT": "6b031df5-bade-5f6b-6258-d9bcb897cf55", "ENCOUNTER": "9f71fa15-15fb-7535-0cbe-3302b6a2becf", "CODE": 419199007, "SYSTEM": "SNOMED-CT", "DESCRIPTION": "Allergy to substance (finding)", "TYPE": "allergy", "CATEGORY": "environment"}`
+2. **careplans**
+   - Example: `{"_key": "2816689c-e102-bb41-706e-9a6d7a48d6b8", "_id": "careplans/2816689c-e102-bb41-706e-9a6d7a48d6b8", "_rev": "_jTUgxf2---", "START": "2023-04-24", "PATIENT": "6b031df5-bade-5f6b-6258-d9bcb897cf55", "ENCOUNTER": "70252487-6c86-8a80-3d1f-c3a83e43d4ab", "CODE": 384758001, "DESCRIPTION": "Self-care interventions (procedure)"}`
+3. **conditions**
+   - Example: `{"_key": "1", "_id": "conditions/1", "_rev": "_jTUbwZy---", "START": "2021-12-01", "STOP": "2021-12-01", "PATIENT": "7c2e78bd-52cf-1fce-acc3-0ddd93104abe", "ENCOUNTER": "84d6f5d3-569c-be5d-56a4-55f6e91c8a34", "CODE": 314529007, "DESCRIPTION": "Medication review due (situation)"}`
+4. **devices**
+   - Example: `{"_key": "1", "_id": "devices/1", "_rev": "_jTUex-S---", "START": "1998-05-12T09:42:01Z", "PATIENT": "c199a927-1d30-2de8-aa13-ac63424acbbc", "ENCOUNTER": "98153562-d88d-62a4-9c88-a16d139e8ed9", "CODE": 337414009, "DESCRIPTION": "Blood glucose meter (physical object)", "UDI": "(01)56112002257962(11)980421(17)230506(10)8731706652942(21)31868203"}`
+5. **encounters**
+   - Example: `{"_key": "84d6f5d3-569c-be5d-56a4-55f6e91c8a34", "_id": "encounters/84d6f5d3-569c-be5d-56a4-55f6e91c8a34", "_rev": "_jTUflF----", "START": "2021-12-02T04:21:42Z", "STOP": "2021-12-02T04:36:42Z", "PATIENT": "7c2e78bd-52cf-1fce-acc3-0ddd93104abe", "ORGANIZATION": "c5742266-625d-3824-9ed3-4b5c6bc3e296", "PROVIDER": "788c9178-9c9f-322d-bb05-c24373197a6f", "PAYER": "734afbd6-4794-363b-9bc0-6a3981533ed5", "ENCOUNTERCLASS": "wellness", "CODE": 410620009, "DESCRIPTION": "Well child visit (procedure)", "BASE_ENCOUNTER_COST": 136.8, "TOTAL_CLAIM_COST": 753.44, "PAYER_COVERAGE": 0}`
+6. **imaging_studies**
+   - Example: `{"_key": "1", "_id": "imaging_studies/1", "_rev": "_jTUfsom---", "DATE": "2021-09-04T15:45:38Z", "PATIENT": "92944aea-8e32-b897-eacf-8748c96231fb", "ENCOUNTER": "0bdc3cdd-4450-d290-8dd2-c503a9a83052", "SERIES_UID": "1.2.840.99999999.1.54837860.1630770338050", "BODYSITE_CODE": 344001, "BODYSITE_DESCRIPTION": "Ankle", "MODALITY_CODE": "DX", "MODALITY_DESCRIPTION": "Digital Radiography", "INSTANCE_UID": "1.2.840.99999999.1.1.92867334.1630770338050", "SOP_CODE": "1.2.840.10008.5.1.4.1.1.1.1", "SOP_DESCRIPTION": "Digital X-Ray Image Storage", "PROCEDURE_CODE": 19490002}`
+7. **immunizations**
+   - Example: `{"_key": "1", "_id": "immunizations/1", "_rev": "_jTUero----", "DATE": "2021-12-02T04:21:42Z", "PATIENT": "7c2e78bd-52cf-1fce-acc3-0ddd93104abe", "ENCOUNTER": "84d6f5d3-569c-be5d-56a4-55f6e91c8a34", "CODE": 8, "DESCRIPTION": "Hep B adolescent or pediatric", "BASE_COST": 136}`
+8. **medications**
+   - Example: `{"_key": "1", "_id": "medications/1", "_rev": "_jTUfHNK--_", "START": "2023-08-14T22:28:03Z", "STOP": "2023-08-28T22:28:03Z", "PATIENT": "ee070281-5df4-601c-8660-d40e7ea76def", "PAYER": "8fa6c185-e44e-3e34-8bd8-39be8694f4ce", "ENCOUNTER": "61d4da5d-9c25-47f4-dbdf-a1d97e897d99", "CODE": 308192, "DESCRIPTION": "Amoxicillin 500 MG Oral Tablet", "BASE_COST": 177.98, "PAYER_COVERAGE": 0, "DISPENSES": 1, "TOTALCOST": 177.98}`
+9. **observations**
+   - Example: `{"_key": "1", "_id": "observations/1", "_rev": "_jTUdq4S---", "DATE": "2021-12-02T04:21:42Z", "PATIENT": "7c2e78bd-52cf-1fce-acc3-0ddd93104abe", "ENCOUNTER": "84d6f5d3-569c-be5d-56a4-55f6e91c8a34", "CATEGORY": "vital-signs", "CODE": "8302-2", "DESCRIPTION": "Body Height", "VALUE": 50.5, "UNITS": "cm", "TYPE": "numeric"}`
+10. **organizations**
+    - Example: `{"_key": "74ab949d-17ac-3309-83a0-13b4405c66aa", "_id": "organizations/74ab949d-17ac-3309-83a0-13b4405c66aa", "_rev": "_jTUfxui---", "NAME": "Fitchburg Outpatient Clinic", "ADDRESS": "881 Main Street", "CITY": "Fitchburg", "STATE": "MA", "ZIP": 1420, "LAT": 42.586487, "LON": -71.80521, "PHONE": "978-342-9781 Or 978-342-9781", "REVENUE": 0, "UTILIZATION": 233}`
+11. **patients**
+    - Example: `{"_key": "7c2e78bd-52cf-1fce-acc3-0ddd93104abe", "_id": "patients/7c2e78bd-52cf-1fce-acc3-0ddd93104abe", "_rev": "_jTUb_0C---", "BIRTHDATE": "2021-12-01", "SSN": "999-34-1010", "FIRST": "Shila857", "LAST": "Kshlerin58", "RACE": "white", "ETHNICITY": "hispanic", "GENDER": "F", "BIRTHPLACE": "Fall River Massachusetts US", "ADDRESS": "571 Zemlak Annex Unit 25", "CITY": "Scituate", "STATE": "Massachusetts", "COUNTY": "Plymouth County", "FIPS": 25023, "ZIP": 2066, "LAT": 42.21637129800291, "LON": -70.714864560875, "HEALTHCARE_EXPENSES": 3672.68, "HEALTHCARE_COVERAGE": 3026.74, "INCOME": 41426}`
+12. **payers**
+    - Example: `{"_key": "a735bf55-83e9-331a-899d-a82a60b9f60c", "_id": "payers/a735bf55-83e9-331a-899d-a82a60b9f60c", "_rev": "_jTUfUam---", "NAME": "Medicare", "OWNERSHIP": "GOVERNMENT", "AMOUNT_COVERED": 3844073.84, "AMOUNT_UNCOVERED": 216986.21, "REVENUE": 868360.5, "COVERED_ENCOUNTERS": 1682, "UNCOVERED_ENCOUNTERS": 0, "COVERED_MEDICATIONS": 2332, "UNCOVERED_MEDICATIONS": 0, "COVERED_PROCEDURES": 2318, "UNCOVERED_PROCEDURES": 0, "COVERED_IMMUNIZATIONS": 531, "UNCOVERED_IMMUNIZATIONS": 0, "UNIQUE_CUSTOMERS": 49, "QOLS_AVG": 0.7899960577267399, "MEMBER_MONTHS": 5364}`
+13. **procedures**
+    - Example: `{"_key": "1", "_id": "procedures/1", "_rev": "_jTUghZG--_", "START": "2021-12-02T04:21:42Z", "STOP": "2021-12-02T04:36:42Z", "PATIENT": "7c2e78bd-52cf-1fce-acc3-0ddd93104abe", "ENCOUNTER": "84d6f5d3-569c-be5d-56a4-55f6e91c8a34", "CODE": 430193006, "DESCRIPTION": "Medication Reconciliation (procedure)", "BASE_COST": 406.06}`
+14. **providers**
+    - Example: `{"_key": "b907ab5d-01ba-3293-880a-82914c7be3ed", "_id": "providers/b907ab5d-01ba-3293-880a-82914c7be3ed", "_rev": "_jTUfRTm--d", "ORGANIZATION": "74ab949d-17ac-3309-83a0-13b4405c66aa", "NAME": "Ted955 Reilly981", "GENDER": "M", "SPECIALITY": "GENERAL PRACTICE", "ADDRESS": "881 Main Street", "CITY": "Fitchburg", "STATE": "MA", "ZIP": 1420, "LAT": 42.586487, "LON": -71.80521, "ENCOUNTERS": 233, "PROCEDURES": 0}`
+15. **supplies**
+    - Example: `{"_key": "1", "_id": "supplies/1", "_rev": "_jTUb7nu---", "DATE": "1998-05-12", "PATIENT": "c199a927-1d30-2de8-aa13-ac63424acbbc", "ENCOUNTER": "98153562-d88d-62a4-9c88-a16d139e8ed9", "CODE": 337388004, "DESCRIPTION": "Blood glucose testing strips (physical object)", "QUANTITY": 50}`

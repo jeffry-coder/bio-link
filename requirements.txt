@@ -1,0 +1,13 @@
+python-dotenv
+python-arango
+python-louvain
+arango-datasets
+nx-arangodb
+langchain-community
+langchain-openai
+langgraph
+langchain-pinecone 
+pinecone-notebooks
+langchain-chroma 
+pyvis
+nx-cugraph-cu12 # only install if you have NVIDIA GPU
